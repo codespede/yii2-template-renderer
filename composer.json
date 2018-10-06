@@ -2,7 +2,6 @@
     "name": "codespede/yii2-template-renderer",
     "description": "Facility for rendering data in any custom format/structure with just a parent-view, child-view and DataProvider",
     "keywords": ["yii", "template renderer", "rest", "web service", "api"],
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Mahesh S Warrier",
