@@ -29,6 +29,7 @@ class TemplateRenderer extends Widget
      * Runs the widget.
      */
 	public function run(){
+		Yii::$app->controller->serializer = 'cs\templaterenderer\Serializer';
 		$this->dataProvider->prepare(true);
 		return $this->render($this->parentView);
 	}
