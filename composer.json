@@ -1,0 +1,22 @@
+{
+    "name": "codespede/yii2-template-renderer",
+    "description": "Facility for rendering data in any custom format/structure with just a parent-view, child-view and DataProvider",
+    "keywords": ["yii", "template renderer", "rest", "web service", "api"],
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Mahesh S Warrier",
+            "email": "maheshs60@gmail.com"
+        }
+    ],
+    "type": "yii2-extension",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "cs\\templaterenderer\\": ""
+        }
+    }
+}
