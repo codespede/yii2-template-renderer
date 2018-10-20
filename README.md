@@ -64,6 +64,7 @@ public function actionRender(){
         'itemView' => '/path/to/item-view', //path to the item view file
     ]);
 }
+
 ```
 In the `$parentView` file, a placeholder `{{items}}` in the code will be replaced automatically with the collectively rendered result of `$itemView` for the models in the current page.
 For example, if the content has to be rendered as shown in the second use case above, the `$parentView` file should be like:
