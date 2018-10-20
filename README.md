@@ -1,7 +1,9 @@
 Template Renderer for Yii 2
 ===========================
 
-Facilitates rendering data in any custom format/structure with just a parent-view, child-view and DataProvider(Supports pagination, sorting, filtering and all other operations supported by DataProvider). Though this extension is mainly intended for RESTful APIs built in Yii 2, it can be used anywhere in the application as explained below.
+Facilitates rendering data in any custom format/structure with just a parent-view, child-view and DataProvider(Supports pagination, sorting, filtering and all other operations supported by DataProvider). 
+
+Though this extension is mainly intended for RESTful APIs built in Yii 2, it can be used anywhere in the application as explained below.
 
 Installation
 ------------
@@ -21,20 +23,6 @@ or add
 ```
 
 to the `require` section of your composer.json.
-
-How to use
-----------
-
-One can use this by simply returning the TemplateRenderer object in any action as shown in the below code:
-
-public function actionRender(){
-    $dataProvider = new ActiveDataProvider(['query' => Model::find()->where($condition)])
-    return new \yii\rest\TemplateRenderer([
-            'dataProvider' => $dataProvider,
-            'parentView' => '/path/to/parent-view', //path to the parent or wrapper view file
-            'itemView' => '/path/to/item-view', //path to the item view file
-        ]);
-}
 
 Use Cases
 ---------
@@ -62,6 +50,34 @@ XYZ,xyz.jpg,Content of XYZ
 -end-
 ```
  - Or in any situation where the you have to deliver custom formatted data through the API.
+
+How to use
+----------
+
+One can use this by simply returning the TemplateRenderer object in any action as shown in the below code:
+```
+public function actionRender(){
+    $dataProvider = new ActiveDataProvider(['query' => Model::find()->where($condition)])
+    return new \yii\rest\TemplateRenderer([
+        'dataProvider' => $dataProvider,
+        'parentView' => '/path/to/parent-view', //path to the parent or wrapper view file
+        'itemView' => '/path/to/item-view', //path to the item view file
+    ]);
+}
+```
+In the `$parentView` file, a placeholder `{{items}}` in the code will be replaced automatically with the collectively rendered result of `$itemView` for the models in the current page.
+For example, if the content has to be rendered as shown in the second use case above, the `$parentView` file should be like:
+```
+-begin-
+{{items}}
+-end-
+```
+and the `$itemView` should be like:
+```
+--title=<?=$model->title?>
+--image=<?=$model->image?>
+--content=<?=$model->content?>
+```
 
 Advantages
 ---------
