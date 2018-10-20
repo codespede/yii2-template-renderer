@@ -1,5 +1,6 @@
 <?php
 namespace cs\templaterenderer;
+use Yii;
 use \yii\base\Widget;
 
 class TemplateRenderer extends Widget
@@ -25,11 +26,19 @@ class TemplateRenderer extends Widget
      */
 	public $itemView;
 
+     /**
+     * {@inheritdoc}
+     */
+     public function init(){
+          Yii::$app->controller->serializer = 'cs\templaterenderer\Serializer';
+          return parent::init();
+     }
+
 	/**
      * Runs the widget.
      */
 	public function run(){
-		Yii::$app->controller->serializer = 'cs\templaterenderer\Serializer';
+		
 		$this->dataProvider->prepare(true);
 		return $this->render($this->parentView);
 	}
