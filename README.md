@@ -59,7 +59,7 @@ One can use this by simply returning the TemplateRenderer object in any action a
 ```
 public function actionRender(){
     $dataProvider = new ActiveDataProvider(['query' => Model::find()->where($condition)])
-    return new \yii\rest\TemplateRenderer([
+    return new \cs\templaterenderer\TemplateRenderer([
         'dataProvider' => $dataProvider,
         'parentView' => '/path/to/parent-view', //path to the parent or wrapper view file
         'itemView' => '/path/to/item-view', //path to the item view file
