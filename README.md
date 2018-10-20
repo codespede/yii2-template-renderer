@@ -55,6 +55,7 @@ How to use
 ----------
 
 One can use this by simply returning the TemplateRenderer object in any action as shown in the below code:
+
 ```
 public function actionRender(){
     $dataProvider = new ActiveDataProvider(['query' => Model::find()->where($condition)])
@@ -66,14 +67,17 @@ public function actionRender(){
 }
 
 ```
+
 In the `$parentView` file, a placeholder `{{items}}` in the code will be replaced automatically with the collectively rendered result of `$itemView` for the models in the current page.
 For example, if the content has to be rendered as shown in the second use case above, the `$parentView` file should be like:
+
 ```
 -begin-
 {{items}}
 -end-
 ```
 and the `$itemView` should be like:
+
 ```
 --title=<?=$model->title?>
 --image=<?=$model->image?>
