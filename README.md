@@ -38,7 +38,7 @@ public function actionRender(){
 
 Use Cases
 ---------
-- Suppose you want to deliver the data in CSV like below:
+- Suppose you want to deliver the data in CSV format like below:
 ```
 title,image,content
 ABC,abc.jpg,Content of ABC
@@ -65,5 +65,5 @@ XYZ,xyz.jpg,Content of XYZ
 
 Advantages
 ---------
-- The data can be paginated, sorted and filtered just as how it can be done for a GridView or ListView. You can pass the pagination, sort and filter parameters in the URL and the content rendered will be according to the provided parameters.
-- Easy to navigate through paginated content by using Pagination Headers in the response.
+- The data can be paginated, sorted and filtered just as how it can be done with a GridView or ListView. You can pass the pagination, sort and filter parameters in the URL and the content rendered will be according to the provided parameters.
+- Easy to navigate through paginated content by utilizing Pagination Headers in the response.
